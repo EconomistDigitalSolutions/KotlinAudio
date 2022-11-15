@@ -42,6 +42,7 @@ import com.google.android.exoplayer2.upstream.*
 import com.google.android.exoplayer2.upstream.cache.CacheDataSource
 import com.google.android.exoplayer2.upstream.cache.SimpleCache
 import com.google.android.exoplayer2.util.Util
+import com.economist.darwin.playerlistener.ExoPlayerListener
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -165,6 +166,8 @@ abstract class BaseAudioPlayer internal constructor(private val context: Context
 
         exoPlayer.addListener(PlayerListener())
 
+        (context.applicationContext as? ExoPlayerListener)?.onPlayerReady(exoPlayer)
+
         scope.launch {
             mediaSessionConnector.setPlayer(playerToUse)
         }
@@ -265,6 +268,7 @@ abstract class BaseAudioPlayer internal constructor(private val context: Context
         abandonAudioFocusIfHeld()
         stop()
         notificationManager.destroy()
+        (context.applicationContext as? ExoPlayerListener)?.onPlayerReleased()
         exoPlayer.release()
         cache?.release()
         cache = null
