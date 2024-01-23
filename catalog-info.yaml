@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+# This is the name of the component that will show up in the sidebar
+kind: Component
+metadata:
+  name: KotlinAudio
+  title: kotlinaudio
+  description: The repo that supports the submodule which is a fork of the original KotlinAudio but allows us to use reflection to integrate Conviva
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: service
+  owner: group:the-economist/core-audio
+  lifecycle: Production
+  system: system:the-economist/lamarr-core-app
+---
+
+  
