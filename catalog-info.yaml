@@ -6,12 +6,12 @@ metadata:
   title: kotlinaudio
   description: The repo that supports the submodule which is a fork of the original KotlinAudio but allows us to use reflection to integrate Conviva
   annotations:
-    backstage.io/techdocs-ref: dir:./docs/index.md
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: group:the-economist/core-audio
   lifecycle: Production
-  system: the-economist/lamarr-core-app
+  system: system:the-economist/lamarr-core-app
 ---
 
   
